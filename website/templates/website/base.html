@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	{% block head %}
+		<title>{% block title %}Alberto Vara Home Page{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="TEST">
+        <meta name="author" content="Alberto Vara">
+		<!-- CSS -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/font-awesome.min.css">
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/maximage.css">
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/spirito.css" />
+		<script src="{{ STATIC_URL }}js/modernizr.custom.min.js"></script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-52651345-1', 'auto');
+		  ga('send', 'pageview');
+		
+		</script>
+        {% block extrahead %}
+        {% endblock %}
+    {% endblock %}
+ </head>
+<body data-color="turquoise">
+	<div id="loader">
+	<div class="windows8">
+<div class="wBall" id="wBall_1">
+<div class="wInnerBall">
+</div>
+</div>
+<div class="wBall" id="wBall_2">
+<div class="wInnerBall">
+</div>
+</div>
+<div class="wBall" id="wBall_3">
+<div class="wInnerBall">
+</div>
+</div>
+<div class="wBall" id="wBall_4">
+<div class="wInnerBall">
+</div>
+</div>
+<div class="wBall" id="wBall_5">
+<div class="wInnerBall">
+</div>
+</div>
+</div>
+</div>
+	<div id="wrapper">
+		{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+			<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+				{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+				{{ message }}
+			</li>
+			{% endfor %}
+		</ul>
+		{% endif %}		
+		<header id="home">
+			<div id="maximage" class="maximage-slider">
+				<img src="{{ STATIC_URL }}img/home1.jpg" alt="Imagen home 1" title="Imagen home 1"/>
+				<img src="{{ STATIC_URL }}img/home2.jpg" alt="Imagen home 2" title="Imagen home 2"/>
+			</div>
+			<div class="fullscreen-controls">
+				<a class="img-prev"></a>
+				<a class="img-next"></a>
+			</div>
+			<div class="pattern"></div>
+			<div class="home-wrapper">
+				<div class="logo">
+					<h1>Alberto Vara Navarrete</h1>
+				</div>
+				<div id="home-slider">
+					<div class="star-line">
+						<span class="line-pre"></span>
+						<span class="icons">
+							<i class="glyphicon glyphicon-star"></i>
+							<i class="glyphicon glyphicon-star"></i>
+							<i class="glyphicon glyphicon-star"></i>
+						</span>
+						<span class="line-after"></span>
+					</div>
+					<ul class="bxslider">
+					  <li><h1>Expert PHP Developer</h1></li>
+					  <li><h1>Product &amp; Sofware Architect</h1></li>
+					  <li><h1>UML Methodology &amp; Design Patterns</h1></li>
+					</ul>
+				</div>
+				<div class="buttons">
+					<a class="btn" href="#about" data-scroll="#about">Learn More</a>
+				</div>
+			</div>
+		</header>
+		<nav>
+			<div class="logo">
+				<h1>Alberto Vara</h1>
+			</div>
+			<div class="menu-trigger">
+				<a href="#"><i class="fa fa-bars"></i></a>
+			</div>
+			<ul>
+				<li class="active"><a href="#home">Home</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#portfolio">Work</a></li>
+				<li><a href="#follow-me">Follow me</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>		
+		</nav>	
+		{% block content %}
+		
+		{% endblock %}
+ 
+        {% block footer-wrapper %}
+		<footer>
+			<h3>Alberto Vara</h3>
+		</footer>
+        {% endblock footer-wrapper %}
+	</div>
+{% block js %}
+	<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+	<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+	<script src="{{ STATIC_URL }}js/waypoints.min.js"></script>
+	<script src="{{ STATIC_URL }}js/waypoints.sticky.js"></script>
+	<script src="{{ STATIC_URL }}js/jquery.nav.js"></script>
+	<script src="{{ STATIC_URL }}js/jquery.scrollTo.min.js"></script>
+	<script src="{{ STATIC_URL }}js/jquery.bxslider.min.js"></script>
+	<script src="{{ STATIC_URL }}js/jquery.cycle.all.min.js"></script>
+	<script src="{{ STATIC_URL }}js/jquery.mixitup.min.js"></script>
+	<script src="{{ STATIC_URL }}js/jquery.appear.js"></script>
+	<script src="{{ STATIC_URL }}js/jquery.maximage.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script src="{{ STATIC_URL }}js/jquery.gmap.min.js"></script>
+	<script src="{{ STATIC_URL }}js/jquery.parallax.js"></script>
+	<script src="{{ STATIC_URL }}js/spirito.js"></script>
+	<script src="{{ STATIC_URL }}js/portfolio-grid.js"></script>
+	<script>
+		$(document).ready(function() {
+			Spirito.init().initSliders().initPortfolio().initMaps();
+			Grid.init();			
+
+			$(window).load(function(){
+				$('#loader').fadeOut(1000,function(){ $(this).remove(); });
+				Spirito.parallax();
+			});
+		});
+	</script>
+	<!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+	{% block extra_js %}	
+	{% endblock %}
+{% endblock %}
+</body>
+</html>

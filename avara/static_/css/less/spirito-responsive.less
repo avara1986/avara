@@ -1,0 +1,302 @@
+@media (max-width: 400px) {
+	#home {
+		.fullscreen-controls {
+			margin-top: -23px;
+			.img-prev, .img-next {
+				&:before {
+					font-size: 23px;
+				}
+			}
+		}
+		.home-wrapper {
+			.logo {
+				h1 {
+					font-size: 32px;
+					line-height: 36px;
+					padding-bottom: 0;
+				}
+			}
+			#home-slider {
+				h1 {
+					margin-top: 10px;
+					font-size: 16px;
+					line-height: 20px;
+				}
+			}
+		}
+	}
+	.subscribe {
+		input[type=text] {
+			margin: 35px auto;
+			width: 80%;
+		}
+	}
+	.section-title {
+		h1.super-title {
+			font-size: 28px;
+			line-height: 34px;
+			padding-top: 25px;
+			padding-bottom: 25px;
+			margin-bottom: 20px;
+		}
+		.subheading {
+			font-size: 12px;
+			line-height: 16px;
+		}
+	}
+	nav {
+		ul {
+			overflow-y: auto;
+			max-height: 100%;
+		}
+	}
+	.quote {
+		margin-top: 50px;
+		margin-bottom: 50px;
+		h2 {
+			font-size: 18px;
+		}
+	}
+	.page {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	.portfolio-grid {
+		margin-bottom: -30px;
+	}
+}
+@media (min-width: 401px) and (max-width: @screen-xs-max) {
+	#home {
+		.fullscreen-controls {
+			margin-top: -30px;
+			.img-prev, .img-next {
+				&:before {
+					font-size: 30px;
+				}
+			}
+		}
+		.home-wrapper {
+			.logo {
+				h1 {
+					font-size: 36px;
+					line-height: 38px;
+					padding-bottom: 5px;
+				}
+			}
+			#home-slider {
+				h1 {
+					margin-top: 10px;
+					font-size: 26px;
+					line-height: 32px;
+				}
+			}
+		}
+	}
+}
+@media (max-width: @screen-xs-min) {
+	.portfolio-grid {
+		.portfolio-item {
+			width: 100%;
+		}
+	}
+	.call-to {
+		.btn {
+			margin: 25px 0 0;
+		}
+	}
+}
+@media (min-width: @screen-xs-min) and (max-width: @screen-xs-max) {
+	.portfolio-grid {
+		.portfolio-item {
+			width: 50%;
+		}
+	}
+}
+@media (max-width: @screen-xs-max) {
+	#home {
+		background-attachment: scroll !important;
+		//height: 300px !important;
+
+		#maximage {
+			//height: 300px !important;
+		}
+
+		.home-wrapper {
+			#home-slider {
+				.star-line {
+					width: 300px;
+					.line-pre, .line-after {
+						width: 100px;
+					}
+				}
+			}
+		}
+	}
+	nav {
+		.clearfix();
+		.menu-trigger {
+			display: block;
+		}
+		ul {
+			position: relative;
+			height: auto;
+			float: none;
+			display: none;
+			margin: 70px 0 0;
+			width: 100%;
+			li {
+				margin: 0;
+				padding: 0;
+				background-color: #fff;
+				display: block;
+				a {
+					width: auto;
+					border-top: 1px solid #eeeeee;
+					display: block;
+					padding: 15px 15px;
+					font-size: 16px;
+					margin: 0 25px;
+				}
+			}
+		}
+		&.colored {
+			ul {
+				li {
+					a {
+						border-top-color: rgba(0,0,0,0.05);
+					}
+				}
+			}
+		}
+		&.dark {
+			ul {
+				li {
+					background-color: #333;
+					a {
+						border-top-color: rgba(255,255,255,0.05);
+					}
+				}
+			}
+		}
+		&.small {
+			ul {
+				margin: 45px 0 0;
+				height: auto;
+			}
+		}
+	}
+	.contact-details {
+		.phone-number, .company-address {
+			h2 {
+				font-size: 36px;
+			}
+		}
+	}
+	.parallax {
+		background-size: 350% !important;
+	}
+}
+
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+
+	#home {
+		.fullscreen-controls {
+			margin-top: -40px;
+			.img-prev, .img-next {
+				&:before {
+					font-size: 40px;
+				}
+			}
+		}
+		.home-wrapper {
+			.logo {
+				h1 {
+					font-size: 56px;
+					line-height: 64px;
+					padding-bottom: 10px;
+				}
+			}
+			#home-slider {
+				.star-line {
+					width: 470px;
+					.line-pre, .line-after {
+						width: 180px;
+					}
+				}
+				h1 {
+					font-size: 36px;
+					line-height: 40px;
+				}
+			}
+		}
+	}
+	.portfolio-grid {
+		.portfolio-item {
+			width: 33.333%;
+		}
+	}
+	.process {
+		.process-arrow {
+			vertical-align: top;
+			i {
+				font-size: 24px;
+				margin-top: -10px;
+				display: block;
+				line-height: 170px;
+			}
+		}
+		.process-circle {
+			.square(150px);
+			line-height: 150px;
+		}
+	}
+}
+
+@media (max-width: @screen-sm-max) {
+	#home > .home-wrapper {
+		opacity: 1 !important;
+	}
+	.animate {
+		.opacity(1);
+	}
+
+	.portfolio-grid {
+		.portfolio-item {
+			.og-expander {
+				.og-fullimg {
+					display: none;
+				}
+				.og-details {
+					width: 100%;
+				}
+			}
+		}
+	}
+	.parallax {
+		background-attachment: scroll;
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+}
+
+@media (min-width: @screen-sm-min) and (max-width: 1200px) {
+	.parallax {
+		background-size: 250% !important;
+	}
+}
+@media (min-width: @screen-lg-min) {
+	.boxed {
+		#wrapper {
+			position: relative;
+			width: 1174px;
+			margin: 0 auto;
+			overflow: hidden !important;
+			.box-shadow(0 0 6px rgba(0,0,0,0.2));
+		}
+		nav {
+			&.sticky {
+				width: 1174px;
+			}
+		}
+	}
+}

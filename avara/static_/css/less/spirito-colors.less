@@ -1,0 +1,125 @@
+
+.generate-color-style('turquoise',#1abc9c);
+.generate-color-style('red',#e74c3c);
+.generate-color-style('blue',#3498db);
+.generate-color-style('green',#2ecc71);
+.generate-color-style('purple',#9b59b6);
+.generate-color-style('yellow',#f1c40f);
+
+.generate-color-style(@name: 'undefined', @color: #000000) {
+	
+	@color-name: e(@name);
+
+	body[data-color="@{color-name}"] {
+		a {
+			color: @color;
+		}
+		.text-primary {
+			color: @color;
+		}
+		.btn-primary {
+			.button-variant(#ffffff,@color,@color);
+		}
+		input[type=text],input[type=password],textarea {
+			&:focus {
+				border-color: @color;
+			}
+		}
+
+
+		nav {
+			&, &.dark {
+				ul {
+					li {
+						a:hover {
+							color: @color !important;
+							&:active, &:focus {
+								color: @color !important;
+							}
+						}
+						&.active {
+							a {
+								color: @color !important;
+							}
+						}
+					}
+				}
+			}
+			&.colored {
+				background-color: @color;
+			}
+			.menu-trigger a:hover {
+				color: @color;
+			}
+		}
+
+		.section-title {
+			h2 {
+				color: @color;
+			}
+		}
+		.feature-box {
+			.fa {
+				background-color: @color;
+				&:after {
+					box-shadow: 0 0 0 3px @color;
+				}
+			}
+		}
+		
+		.team .team-photo .team-overlay, .blog-home .post .post-image .overlay, .portfolio-grid .portfolio-item .portfolio-overlay {
+			@pcolor: fade(@color, 92%);
+			background-color: @color;
+			background-color: @pcolor;
+		}
+		.portfolio-grid-controls .filter {
+			&:hover, &.active {
+				border-color: @color;
+				background-color: @color;
+			}
+		}
+		.portfolio-grid .portfolio-item .portfolio-details a, .post .post-title a, aside .categories li a {
+			&:hover {
+				color: @color !important;
+			}
+		}
+		.post {
+			.social-media {
+				li a:hover {
+					background-color: @color;
+				}
+			}
+		}
+		.process {
+			.process-circle {
+				border-color: @color;
+			}
+		}
+		.clients {
+			.client {
+				@pcolor: fade(@color, 50%);
+				a {
+					background-color: @pcolor;
+					&:hover {
+						background-color: @color;
+					}
+				}
+			}
+		}
+
+		aside {
+			.tags li a {
+				background-color: @color;
+			}
+		}
+
+		@media (max-width: @screen-xs-max) {
+			nav.colored {
+				ul li {
+					background-color: @color;
+				}
+			}
+		}
+
+	}
+}

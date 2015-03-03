@@ -1,0 +1,143 @@
+nav {
+	background-color: #ffffff;
+	.box-shadow(0 1px 0 3px rgba(0,0,0,0.05));
+	text-align: center;
+	.clearfix();
+	position: relative;
+	z-index: 10;
+	.logo {
+		float: left;
+		height: 70px;
+		h1 {
+			font-family: @google-font-3;
+			color: #333333;
+			font-size: 36px;
+			margin: 0 0 0 30px;
+			padding: 0;
+		}
+	}
+	.menu-trigger {
+		display: none;
+		font-size: 24px;
+		position: absolute;
+		top: 18px;
+		right: 25px;
+		a {
+			color: #333333;
+		}
+	}
+	ul {
+		float: right;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		.clearfix();
+		height: 70px;
+		vertical-align: middle;
+		display: table;
+
+		li {
+			display: table-cell;
+			padding-right: 30px;
+			vertical-align: middle;
+			&:last-child {
+				border-bottom: 1px solid #eeeeee;
+			}
+			a {
+				text-transform: uppercase;
+				font-family: @google-font;
+				font-size: 14px;
+				line-height: 16px;
+				text-decoration: none !important;
+				
+				&, &:active, &:focus {
+					color: #333333 !important;
+				}
+			}
+		}
+	}
+	&.small {
+		.logo, ul {
+			height: 45px;
+		}
+		.logo {
+			h1 {
+				font-size: 20px;
+				line-height: 45px;
+			}
+		}
+		.menu-trigger {
+			top: 5px;
+			a {
+				font-size: 18px;
+			}
+		}
+		ul {
+			li {
+				a {
+					font-size: 12px;
+					line-height: 14px;
+				}
+			}
+		}
+	}
+	&.dark {
+		background-color: #333333;
+		.logo {
+			h1 {
+				color: #ffffff;
+			}
+		}
+		.menu-trigger a {
+			color: #ffffff;
+		}
+		ul {
+			li {
+				a {
+					&, &:active, &:focus {
+						color: #ffffff;
+					}
+				}
+			}
+		}
+	}
+	&.colored {
+		.logo {
+			h1 {
+				color: #ffffff;
+			}
+		}
+		.menu-trigger a {
+			color: #ffffff;
+			&:hover {
+				color: #ffffff !important;
+				opacity: 0.7;
+			}
+		}
+		ul {
+			li {
+				a {
+					&, &:active, &:focus {
+						color: #ffffff !important;
+					}
+					&:hover {
+						color: #333333 !important;
+						&:active, &:focus {
+							color: #333333 !important;
+						}
+					}
+				}
+				&.active {
+					a {
+						color: #333333 !important;
+					}
+				}
+			}
+		}
+	}
+	&.sticky {
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
+}
