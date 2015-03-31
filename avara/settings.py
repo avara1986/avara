@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'csp',
     'djangae.contrib.gauth',
     'djangae',  # Djangae should be after Django core/contrib things
+    'rest_framework',
     'website',
 )
 
@@ -132,5 +133,15 @@ STATICFILES_DIRS = (
 if DEBUG:
     CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")
 
-
+# REST FRAMEWORK
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
+    ),
+}
 from djangae.contrib.gauth.settings import *

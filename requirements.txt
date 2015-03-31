@@ -4,3 +4,4 @@ django-secure
 django-csp
 django-session-csrf
 nose
+djangorestframework
