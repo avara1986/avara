@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.views.generic import TemplateView
 '''
 ajax_urlpatterns = patterns('apps.cms.attendees.ajax',
     url(r'^send/$', 'send', name='send_attendee'),
@@ -9,5 +10,15 @@ urlpatterns = patterns('',
 )
 '''
 urlpatterns = patterns('website.views',
-    url(r'^$', 'index', name='index_homepage'),
-)
+                       url(r'^projects/wema/$', TemplateView.as_view(
+                           template_name='website/projects_wema.html')),
+                       url(r'^projects/atenea/$', TemplateView.as_view(
+                           template_name='website/projects_atenea.html')),
+                       url(r'^projects/revengebook/$', TemplateView.as_view(
+                           template_name='website/projects_revengebook.html')),
+                       url(r'^projects/olif/$', TemplateView.as_view(
+                           template_name='website/projects_olif.html')),
+                       url(r'^projects/olimpo/$', TemplateView.as_view(
+                           template_name='website/projects_olimpo.html')),
+                       url(r'^$', 'index', name='index_homepage'),
+                       )

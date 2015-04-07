@@ -9,7 +9,14 @@ body {
 	margin-bottom: 50px;
 	background: none;
 }
-
+#content a{
+	color: #cdcdcd;
+	text-shadow: 1px 1px #333;	
+}
+#content a:hover{
+    color: #999;
+    text-shadow: 2px 2px #333;  
+}
 .full {
   background: url(/static/img/home1.png) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -20,4 +27,22 @@ body {
 
 div {
 	color: #fff;
+}
+
+#physic-layer{
+	position: absolute;
+	bottom: 50px;
+	height: 500px;
+	width: 100%;
+}
+
+.img-home{
+	float: left;
+	width: 150px;
+	margin-top: 20px;
+	margin-right: 15px;
+	border-radius: 84px;
+}
+.icons-rrss{
+	font-size: 40px;
 }

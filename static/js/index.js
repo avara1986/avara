@@ -12,7 +12,7 @@ function initWorld(world, Physics) {
   // bounds of the window
   var viewWidth = window.innerWidth
     ,viewHeight = window.innerHeight
-    ,viewportBounds = Physics.aabb(0, 0, window.innerWidth, window.innerHeight)
+    ,viewportBounds = Physics.aabb(0, 0, window.innerWidth, 500)
     ,edgeBounce
     ,renderer
     ,styles = {
@@ -38,7 +38,10 @@ function initWorld(world, Physics) {
     ;
 
   // create a renderer
-  renderer = Physics.renderer('pixi', { el: 'viewport', styles: styles });
+  renderer = Physics.renderer('canvas', { el: 'physic-layer', 
+      width: 500,
+      height: 500,
+      styles: styles });
   // add the renderer
   world.add(renderer);
   // render on each step
@@ -49,7 +52,7 @@ function initWorld(world, Physics) {
   // constrain objects to these bounds
   edgeBounce = Physics.behavior('edge-collision-detection', {
     aabb: viewportBounds
-    ,restitution: 0.2
+    ,restitution: 0.5
     ,cof: 0.8
   });
 
@@ -109,23 +112,163 @@ function addInteraction( world, Physics ){
 }
 
 // helper function (bind "this" to Physics)
+/* 
 function makeBody( obj ){ 
   return this.body( obj.name, obj );
 }
-
+*/
 //
 // Add bodies to the world
 //
 function addBodies( world, Physics ){
-  var v = Physics.geometry.regularPolygonVertices;
-  var bodies = [
-    { name: 'circle', x: 100, y: 100, vx: 0.1, radius: 60 }
+    var v = Physics.geometry.regularPolygonVertices;
+    /*
+    
+      var bodies = [
+        { name: 'circle', x: 100, y: 100, vx: 0.1, radius: 60 }
     ,{ name: 'rectangle', x: 400, y: 100, vx: -0.1, width: 130, height: 130 }
     ,{ name: 'convex-polygon', x: 150, y: 300, vertices: v( 5, 90 ) }
-  ];
-  
-  // functional programming FTW
-  world.add( bodies.map(makeBody.bind(Physics)) );
+      ];
+    //world.add( bodies.map(makeBody.bind(Physics)) );
+    */
+      var python = Physics.body('circle', {
+      // fixed: true,
+      // hidden: true,
+      mass: 10000,
+      radius: 14,
+      x: 400,
+      y: 200
+    });
+    python.view = new Image();
+    python.view.src = '/static/img/python.png';
+    var php = Physics.body('circle', {
+        // fixed: true,
+        // hidden: true,
+        mass: 40000,
+        radius: 14,
+        x: 600,
+        y: 104
+      });
+    php.view = new Image();
+    php.view.src = '/static/img/php.png';
+    
+    var django = Physics.body('rectangle', {
+        // fixed: true,
+        // hidden: true,
+        mass: 90000,
+        width: 84,
+        height: 30,
+        x: 200,
+        y: 220
+      });
+    django.view = new Image();
+    django.view.src = '/static/img/django.png';
+
+    var mysql = Physics.body('rectangle', {
+        // fixed: true,
+        // hidden: true,
+        mass: 9000,
+        width: 58,
+        height: 30,
+        x: 200,
+        y: 36
+      });
+    mysql.view = new Image();
+    mysql.view.src = '/static/img/mysql.png';
+    
+    var gae = Physics.body('circle', {
+        // fixed: true,
+        // hidden: true,
+        mass: 10000,
+        radius: 18,
+        x: 80,
+        y: 100
+      });
+    gae.view = new Image();
+    gae.view.src = '/static/img/google-app-engine.png';
+    
+    var scrum = Physics.body('rectangle', {
+        // fixed: true,
+        // hidden: true,
+        mass: 11000,
+        width: 66,
+        height: 30,
+        x: 150,
+        y: 20
+      });
+    scrum.view = new Image();
+    scrum.view.src = '/static/img/scrum.png';
+    
+    var cloud = Physics.body('circle', {
+        // fixed: true,
+        // hidden: true,
+        mass: 10000,
+        radius: 14,
+        x: 80,
+        y: 100
+      });
+    cloud.view = new Image();
+    cloud.view.src = '/static/img/cloud.png';
+    
+    var angular = Physics.body('rectangle', {
+        // fixed: true,
+        // hidden: true,
+        mass: 11000,
+        width: 80,
+        height: 80,
+        x: 150,
+        y: 20
+      });
+    angular.view = new Image();
+    angular.view.src = '/static/img/tech_angular.png';
+    
+    var html = Physics.body('rectangle', {
+        // fixed: true,
+        // hidden: true,
+        mass: 11000,
+        width: 80,
+        height: 80,
+        x: 150,
+        y: 20
+      });
+    html.view = new Image();
+    html.view.src = '/static/img/tech_html.png';
+    
+    var css = Physics.body('rectangle', {
+        // fixed: true,
+        // hidden: true,
+        mass: 11000,
+        width: 66,
+        height: 30,
+        x: 150,
+        y: 20
+      });
+    css.view = new Image();
+    css.view.src = '/static/img/tech_css.png';
+    
+    var symfony = Physics.body('circle', {
+        // fixed: true,
+        // hidden: true,
+        mass: 10000,
+        radius: 14,
+        x: 80,
+        y: 100
+      });
+    symfony.view = new Image();
+    symfony.view.src = '/static/img/symfony.png';
+      // functional programming FTW
+    world.add(symfony);
+    world.add(css);
+    world.add(html);
+    world.add(angular);
+    world.add(cloud);
+    world.add(scrum);
+    world.add(gae);
+    
+    world.add(mysql);
+    world.add(django);
+    world.add(python);
+    world.add(php);
 }
 
 //

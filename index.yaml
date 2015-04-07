@@ -25,3 +25,13 @@ indexes:
   properties:
   - name: app_label
   - name: name
+
+- kind: website_project
+  properties:
+  - name: __key__
+    direction: desc
+
+- kind: website_technology
+  properties:
+  - name: __key__
+    direction: desc

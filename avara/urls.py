@@ -1,7 +1,5 @@
 from django.conf.urls import patterns, include, url
 from avara import settings
-import session_csrf
-session_csrf.monkeypatch()
 
 from django.contrib import admin
 admin.autodiscover()

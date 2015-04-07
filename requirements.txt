@@ -3,5 +3,6 @@ django>=1.6.10,<1.7
 django-secure
 django-csp
 django-session-csrf
-nose
 djangorestframework
+nose
+Pillow==2.7.0

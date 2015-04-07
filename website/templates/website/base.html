@@ -45,13 +45,21 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">About</a>
+                    <a href="/">Inicio</a>
                 </li>
+                <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projects <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="/projects/wema/">WeMa</a></li>
+		            <li><a href="/projects/atenea/">Atenea Solutions</a></li>
+		            <li><a href="/projects/revengebook/">Revenge Book</a></li>
+		            <li class="divider"></li>
+		            <li><a href="/projects/olif/">OLIF Framework</a></li>
+		            <li><a href="/projects/olimpo/">Olimpo Framework</a></li>
+		          </ul>
+		        </li>
                 <li>
-                    <a href="#">Projects</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
+                    <a href="#">Contacto</a>
                 </li>
             </ul>
         </div>
@@ -61,7 +69,7 @@
 </nav>
 
 <!-- Page Content -->
-<div class="container">
+<div class="container" id="content">
     <div class="row">
         {% block content %}
 
@@ -70,7 +78,8 @@
     <!-- /.row -->
 </div>
 <!-- /.container -->
-
+ {% block footer %}
+ {% endblock %}
 <!-- jQuery -->
 {% block js %}
 	<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
