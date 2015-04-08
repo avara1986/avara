@@ -11,6 +11,7 @@ from website.models import Contact
 
 
 class avaraTestCase(TestCase):
+
     def setUp(self):
         self.client = Client()
 
@@ -19,8 +20,8 @@ class avaraTestCase(TestCase):
         self.assertEqual(index_res.status_code, 200)
 
     def test_post_forms_contact(self):
-            contact_url = reverse('index_homepage')
-            contact_res = self.client.post(contact_url, {'name': 'Alberto',
-                                                         'email': 'a.vara.1986@gmail.com',
-                                                         'comment': 'Pruba'})
-            self.assertEqual(contact_res.status_code, 200)
+        contact_url = reverse('contact')
+        contact_res = self.client.post(contact_url, {'name': 'Alberto',
+                                                     'email': 'a.vara.1986@gmail.com',
+                                                     'comment': 'Pruba'})
+        self.assertEqual(contact_res.status_code, 302)

@@ -26,6 +26,11 @@ indexes:
   - name: app_label
   - name: name
 
+- kind: website_contact
+  properties:
+  - name: __key__
+    direction: desc
+
 - kind: website_project
   properties:
   - name: __key__

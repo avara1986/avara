@@ -9,7 +9,7 @@ class Contact(models.Model):
     comment = models.CharField(_('Comment'), max_length=250, blank=True)
 
     def __unicode__(self):
-        return "%s %s" % self.name, self.email
+        return "%s" % self.name
 
 
 class Technology(models.Model):

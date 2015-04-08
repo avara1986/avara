@@ -45,6 +45,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.csrf.CsrfViewMiddleware',
     'djangae.contrib.security.middleware.AppEngineSecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -64,7 +65,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
-    "session_csrf.context_processor"
+    "session_csrf.context_processor",
+    'django.core.context_processors.csrf',
 )
 
 
@@ -83,7 +85,7 @@ SECURE_CHECKS = [
     "djangosecure.check.djangosecure.check_sts",
     "djangosecure.check.djangosecure.check_frame_deny",
     "djangosecure.check.djangosecure.check_ssl_redirect",
-    "scaffold.settings.check_session_csrf_enabled"
+    "avara.settings.check_session_csrf_enabled"
 ]
 
 ROOT_URLCONF = 'avara.urls'

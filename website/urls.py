@@ -20,5 +20,8 @@ urlpatterns = patterns('website.views',
                            template_name='website/projects_olif.html')),
                        url(r'^projects/olimpo/$', TemplateView.as_view(
                            template_name='website/projects_olimpo.html')),
+                       url(r'^thanks/$', TemplateView.as_view(
+                           template_name='website/thanks.html')),
+                       url(r'^contact/$', 'contact', name='contact'),
                        url(r'^$', 'index', name='index_homepage'),
                        )
