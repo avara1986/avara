@@ -11,7 +11,3 @@ install:
 
 script:
   - python manage.py test
-
-after_script:
-  - cd ..
-  - rm django_tests

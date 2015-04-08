@@ -1,6 +1,6 @@
 # encoding: utf-8
 from django.contrib import admin
-from website.models import Contact, Technology, Project
+from website.models import Contact
 
 
 class ContactAdmin(admin.ModelAdmin):
@@ -9,5 +9,7 @@ class ContactAdmin(admin.ModelAdmin):
         'name', 'email', 'comment')
 
 admin.site.register(Contact, ContactAdmin)
+'''
 admin.site.register(Technology)
 admin.site.register(Project)
+'''

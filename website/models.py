@@ -11,7 +11,7 @@ class Contact(models.Model):
     def __unicode__(self):
         return "%s" % self.name
 
-
+'''
 class Technology(models.Model):
     title = models.CharField(_('name'), max_length=230)
     imgage = models.FileField(upload_to='technologies')
@@ -29,3 +29,4 @@ class Project(models.Model):
 
     def __unicode__(self):
         return self.title
+'''
