@@ -7,7 +7,6 @@ env:
   - "DJANGO_VERSION=1.7"
 
 install:
-  - cd testapp
   - python install_deps.py
 
 script:
