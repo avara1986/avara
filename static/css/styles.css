@@ -46,3 +46,10 @@ div {
 .icons-rrss{
 	font-size: 40px;
 }
+.box-info{
+	background: #333;
+	opacity: 0.8;
+	border-radius: 10px;
+	border: 1px solid #222;
+	padding-bottom: 63px;
+}
