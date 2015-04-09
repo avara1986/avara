@@ -24,6 +24,7 @@ urlpatterns = patterns('website.views',
                            template_name='website/thanks.html')),
                        url(r'^cv/$', TemplateView.as_view(
                            template_name='website/cv.html')),
+                       url(r'^8reinas/$', 'ochoReinas', name='ochoReinas'),
                        url(r'^contact/$', 'contact', name='contact'),
                        url(r'^$', 'index', name='index_homepage'),
                        )

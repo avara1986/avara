@@ -34,3 +34,6 @@ skip_files:
     - \.storage.*
     - (.*)\.egg-info
     - (.*)\.pyc
+    - \.tox.*
+    - \.git.*
+    - \.settings.*

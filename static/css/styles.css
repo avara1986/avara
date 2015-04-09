@@ -53,3 +53,19 @@ div {
 	border: 1px solid #222;
 	padding-bottom: 63px;
 }
+.line-8queens{
+    float: left;
+}
+.field{
+    height: 50px;
+    width: 50px;
+}
+.odd{
+   background: none repeat scroll 0 0 #dfdfdf;
+}
+.even{
+   background: none repeat scroll 0 0 #000;	
+}
+.reina{
+   background: none repeat scroll 0 0 #cc0000; 
+}

@@ -3,9 +3,13 @@
 {% block description %}Gracias por contactar con Alberto Vara{% endblock %}
 {% block content %}	
         <div class="col-md-6 col-sm-12 box-info">
-            <img src="" class="img-home img-rounded"/>
-            <h1>¡Gracias!</h1>
-            <p>Gracias por contactar conmigo. Te responderé lo antes posible</p>
+            <h1>8 Reinas</h1>
+            <p>Recarga la página para probar diferentes soluciones:</p>
+            {% for f in board %}
+	            <div class="line-8queens">
+                    {% for c in f %}<div class="field {{ c.class }} " >{% if c.sol %}X{% endif %}</div>{% endfor %}
+	            </div>
+            {% endfor %}
         </div>
 {% endblock %}
  
