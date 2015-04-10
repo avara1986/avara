@@ -6,10 +6,6 @@ from website.models import Contact
 class ContactAdmin(admin.ModelAdmin):
     model = Contact
     list_display = (
-        'name', 'email', 'comment')
+        'created', 'name', 'email', 'comment')
 
 admin.site.register(Contact, ContactAdmin)
-'''
-admin.site.register(Technology)
-admin.site.register(Project)
-'''
