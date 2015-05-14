@@ -5,3 +5,5 @@ django-csp
 django-session-csrf
 djangorestframework
 nose
+dnspython
+pdb

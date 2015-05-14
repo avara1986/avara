@@ -1,4 +1,9 @@
 # encoding: utf-8
+
+import urllib2
+from dns import resolver
+from dns.exception import DNSException
+
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
@@ -30,6 +35,66 @@ def contact(request):
         form = ContactForm()
     return render_to_response('website/contact.html',
                               {'form': form},
+                              context_instance=RequestContext(request))
+
+
+def dnscheck(request):
+    result = False
+    url = False
+    results_a = []
+    results_cname = []
+    results_mx = []
+    if request.method == 'POST':
+        url = request.POST.get("url", "").replace("http://", "")
+        try:
+            opener = urllib2.build_opener()
+            result = opener.open('http://' + url)
+            opener.close()
+            result = True
+        except urllib2.HTTPError:
+            result = False
+        except Exception, e:
+            result = False
+        #import pdb
+        # pdb.set_trace()
+
+        if result is True:
+            r = resolver.Resolver()
+            r.nameservers = ['8.8.8.8', '8.8.4.4']
+            r.timeout = 10
+            r.lifetime = 10
+            try:
+                answer = r.query(url, 'A', tcp=True, source='')
+                for data in answer:
+                    results_a.append(data)
+            except DNSException:
+                result = 'ERROR'
+            try:
+                answer = r.query(url, 'CNAME', tcp=True, source='')
+                for data in answer:
+                    results_cname.append(data)
+            except DNSException:
+                result = 'ERROR'
+            try:
+                answer = r.query(url, 'MX', tcp=True, source='')
+                for data in answer:
+                    results_mx.append(data)
+            except DNSException:
+                result = 'ERROR'
+            '''
+            import dns.resolver
+            answer = dns.resolver.query("google.com", "A")
+            answers = dns.resolver.query('mail.google.com', 'CNAME')
+            '''
+        ''''''
+        if url is not False:
+            url = 'http://' + url
+    return render_to_response('website/dnscheck.html',
+                              {'url': url,
+                               'result': result,
+                               'results_a': results_a,
+                               'results_cname': results_cname,
+                               'results_mx': results_mx},
                               context_instance=RequestContext(request))
 
 

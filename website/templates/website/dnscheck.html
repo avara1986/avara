@@ -1,0 +1,42 @@
+{% extends "website/base.html" %}
+{% block title %}Contacto | Alberto Vara{% endblock %}
+{% block description %}Contacta con Alberto Vara{% endblock %}
+{% block content %}	
+        <div class="col-md-6 col-sm-12 box-info">
+            <h1>Verificar DNS</h1>
+            <p>Introduce la URL para verificar sus DNS:</p>
+            <form method="post" action="">
+              <span>{% csrf_token %}</span>
+              <div class="form-group">
+                <label for="exampleInputEmail1">URL</label>
+                <input type="text" class="form-control" id="url" name="url" placeholder="">
+              </div>
+              {% if url %}
+              <div class="col-md-12">
+                {% if result %}
+                    <div class="alert alert-success" role="alert"><b>{{ url }} existe</b></div>
+                    <h2>A Records:</h2>
+                    {% for r in results_a %}
+                       {{r}}<br>
+                    {% endfor %}
+                    <h2>CNAME Records:</h2>
+                    {% for r in results_cname %}
+                       {{r}}<br>
+                    {% endfor %}
+                    <h2>MX Records:</h2>
+                    {% for r in results_mx %}
+                       {{r}}<br>
+                    {% endfor %}
+                {% else %}
+                    <div class="alert alert-danger" role="alert"><b>{{ url }} No existe...</b></div>
+                {% endif %}
+              </div>
+              {% endif %}
+            </form>
+        </div>
+{% endblock %}
+ 
+{% block footer %}
+{% endblock %}
+{% block extra_js %}
+{% endblock %}
