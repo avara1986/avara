@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from avara import settings
-
+from avara.api import QueueSendMail, SendToQueue
 from django.contrib import admin
 admin.autodiscover()
 
@@ -14,6 +14,10 @@ urlpatterns = patterns('',
                        # Note that by default this is also locked down with login:admin in
                        # app.yaml
                        url(r'^admin/', include(admin.site.urls)),
+                       url(r'^api/send-queue/$', SendToQueue.as_view(),
+                           name='queue-send-mail'),
+                       url(r'^api/queue-send-mail/$', QueueSendMail.as_view(),
+                           name='queue-send-mail'),
                        url(r'^', include('website.urls')),
                        )
 
