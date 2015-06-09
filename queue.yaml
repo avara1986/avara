@@ -2,5 +2,5 @@
 total_storage_limit: 120M
 queue:
 - name: mailqueue
-  bucket_size: 100
-  rate: 5/s
+  bucket_size: 5
+  rate: 3/s

@@ -23,7 +23,7 @@ handlers:
 
 - url: /.*
   script: avara.wsgi.application
-  secure: always
+#  secure: always
 
 skip_files:
     - manage.py

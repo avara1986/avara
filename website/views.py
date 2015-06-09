@@ -44,6 +44,7 @@ def dnscheck(request):
     results_a = []
     results_cname = []
     results_mx = []
+    results_ns = []
     if request.method == 'POST':
         url = request.POST.get("url", "").replace("http://", "")
         try:
@@ -57,30 +58,35 @@ def dnscheck(request):
             result = False
         #import pdb
         # pdb.set_trace()
+        r = resolver.Resolver()
+        r.nameservers = ['8.8.8.8', '8.8.4.4']
+        r.timeout = 10
+        r.lifetime = 10
+        try:
+            answer = r.query(url, 'A', tcp=True, source='')
+            for data in answer:
+                results_a.append(data)
+        except DNSException:
+            results_a = False
+        try:
+            answer = r.query(url, 'CNAME', tcp=True, source='')
+            for data in answer:
+                results_cname.append(data)
+        except DNSException:
+            results_cname = False
+        try:
+            answer = r.query(url, 'MX', tcp=True, source='')
+            for data in answer:
+                results_mx.append(data)
+        except DNSException:
+            results_mx = False
+        try:
+            answer = r.query(url, 'NS', tcp=True, source='')
+            for data in answer:
+                results_ns.append(data)
+        except DNSException:
+            results_ns = False
 
-        if result is True:
-            r = resolver.Resolver()
-            r.nameservers = ['8.8.8.8', '8.8.4.4']
-            r.timeout = 10
-            r.lifetime = 10
-            try:
-                answer = r.query(url, 'A', tcp=True, source='')
-                for data in answer:
-                    results_a.append(data)
-            except DNSException:
-                result = 'ERROR'
-            try:
-                answer = r.query(url, 'CNAME', tcp=True, source='')
-                for data in answer:
-                    results_cname.append(data)
-            except DNSException:
-                result = 'ERROR'
-            try:
-                answer = r.query(url, 'MX', tcp=True, source='')
-                for data in answer:
-                    results_mx.append(data)
-            except DNSException:
-                result = 'ERROR'
             '''
             import dns.resolver
             answer = dns.resolver.query("google.com", "A")
@@ -94,7 +100,8 @@ def dnscheck(request):
                                'result': result,
                                'results_a': results_a,
                                'results_cname': results_cname,
-                               'results_mx': results_mx},
+                               'results_mx': results_mx,
+                               'results_ns': results_ns},
                               context_instance=RequestContext(request))
 
 
