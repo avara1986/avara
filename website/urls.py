@@ -10,8 +10,8 @@ urlpatterns = patterns('',
 )
 '''
 urlpatterns = patterns('website.views',
-                       url(r'^8reinas/$', 'ochoReinas', name='ochoReinas'),
-                       url(r'^dnscheck/$', 'dnscheck', name='ochoReinas'),
+                       url(r'^8reinas/$', 'ochoReinas', name='ocho_reinas'),
+                       url(r'^dnscheck/$', 'dnscheck', name='dns_check'),
                        url(r'^contact/$', 'contact', name='contact'),
                        url(r'^cv/$', TemplateView.as_view(
                            template_name='website/cv.html'), name="cv"),
