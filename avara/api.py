@@ -8,10 +8,11 @@ from google.appengine.api import taskqueue
 from rest_framework import permissions
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from website.models import Contact
-import new
-from email import email
 
+
+""" EJEMPLO: SendEmail
+
+URL que mandaba tareas a colas
 
 class SendToQueue(APIView):
     permission_classes = [
@@ -28,7 +29,24 @@ class SendToQueue(APIView):
         taskqueue.add(
             queue_name='mailqueue', url=reverse('queue-send-mail'), method='GET')
         return Response("Oks")
+"""
+""""GoL: Game of Life
 
+Recibe un JSON de un tablero de GoL y devuelve la siguiente generación
+"""
+
+
+class GoL(APIView):
+    permission_classes = [
+        permissions.AllowAny
+    ]
+
+    def get(self, request):
+        pass
+
+""" EJEMPLO: SendEmail
+
+URL que la clase "SendToQueue" mandaba a una cola de GAE.
 
 class SendEmail(APIView):
     permission_classes = [
@@ -46,19 +64,4 @@ class SendEmail(APIView):
                        sender=settings.EMAIL_HOST_USER, to='a.vara@gobalo.es')
         return Response("Oks")
 
-
-class QueueSendMail(APIView):
-    permission_classes = [
-        permissions.AllowAny
-    ]
-
-    def get(self, request):
-
-        mail.send_mail(subject='Envío desde la cola', body='Envío desde la cola a las ' + str(timezone.now()),
-                       sender=settings.EMAIL_HOST_USER, to='a.vara@gobalo.es')
-        '''
-        contact = Contact(
-            name="TEST", email="a.vara@gobalo.es", comment="TEST")
-        contact.save()
-        '''
-        return Response("Oks")
+"""

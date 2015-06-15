@@ -10,9 +10,20 @@ indexes:
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
 
+- kind: auth_permission
+  properties:
+  - name: content_type_id
+  - name: codename
+
 - kind: djangae_gaedatastoreuser
   properties:
   - name: __key__
+    direction: desc
+
+- kind: django_admin_log
+  properties:
+  - name: content_type_id
+  - name: action_time
     direction: desc
 
 - kind: django_admin_log
@@ -36,7 +47,23 @@ indexes:
   - name: __key__
     direction: desc
 
-- kind: website_technology
+- kind: website_resource
+  properties:
+  - name: created
+    direction: desc
+  - name: title
+    direction: desc
+
+- kind: website_resource
+  properties:
+  - name: created
+    direction: desc
+  - name: title
+    direction: desc
+  - name: __key__
+    direction: desc
+
+- kind: website_type
   properties:
   - name: __key__
     direction: desc

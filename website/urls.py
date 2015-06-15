@@ -10,6 +10,11 @@ urlpatterns = patterns('',
 )
 '''
 urlpatterns = patterns('website.views',
+                       url(r'^8reinas/$', 'ochoReinas', name='ochoReinas'),
+                       url(r'^dnscheck/$', 'dnscheck', name='ochoReinas'),
+                       url(r'^contact/$', 'contact', name='contact'),
+                       url(r'^cv/$', TemplateView.as_view(
+                           template_name='website/cv.html')),
                        url(r'^projects/wema/$', TemplateView.as_view(
                            template_name='website/projects_wema.html')),
                        url(r'^projects/atenea/$', TemplateView.as_view(
@@ -20,12 +25,8 @@ urlpatterns = patterns('website.views',
                            template_name='website/projects_olif.html')),
                        url(r'^projects/olimpo/$', TemplateView.as_view(
                            template_name='website/projects_olimpo.html')),
+                       url(r'^resources/$', 'resources', name='resources'),
                        url(r'^thanks/$', TemplateView.as_view(
                            template_name='website/thanks.html')),
-                       url(r'^cv/$', TemplateView.as_view(
-                           template_name='website/cv.html')),
-                       url(r'^8reinas/$', 'ochoReinas', name='ochoReinas'),
-                       url(r'^dnscheck/$', 'dnscheck', name='ochoReinas'),
-                       url(r'^contact/$', 'contact', name='contact'),
                        url(r'^$', 'index', name='index_homepage'),
                        )

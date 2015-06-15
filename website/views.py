@@ -7,10 +7,13 @@ from dns.exception import DNSException
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
-from .forms import ContactForm
 from django.views.decorators.csrf import csrf_protect
 from itertools import permutations
 from random import randint
+
+from .forms import ContactForm
+from .models import Type, Resource
+import new
 
 
 def index(request):
@@ -138,4 +141,13 @@ def ochoReinas(request):
     return render_to_response('website/8reinas.html',
                               {'board': board,
                                'solutions': randSol},
+                              context_instance=RequestContext(request))
+
+
+def resources(request):
+    types = Type.objects.all().order_by('name')
+    resources = Resource.objects.all().order_by('title')
+    return render_to_response('website/resources.html',
+                              {'resources': resources,
+                               'types': types},
                               context_instance=RequestContext(request))

@@ -1,0 +1,48 @@
+{% extends "website/base.html" %}
+{% block title %}Recursos | Alberto Vara{% endblock %}
+{% block description %}Listado de enlaces a documentación y recursos útiles{% endblock %}
+{% block content %}	
+        <div class="col-md-12 col-sm-12 box-info">
+            <h1>Recursos</h1>
+            <div class="row filters">
+	            <div class="col-md-12 btn-group" role="group">
+	                <button type="button" class="btn btn-primary active" data-filter="*">Todos</button>
+		            {% for t in types %}
+		                <button type="button" class="btn btn-primary" data-filter=".{{ t.tag }}">{{ t.name }}</button>
+		            {% endfor %}
+                </div>
+            </div>
+            <div class="row grid">
+                {% for r in resources %}
+	            <div class="grid-item col-md-3 col-sm-6 {% for t in r.types.all %}{{ t.tag }} {% endfor %}">
+	            <h2><a href="{{ r.url }}" class="">{{ r.title }}</a></h2>
+	            <p>{{ r.comment }}</p>
+	            </div>
+	            {% endfor %}
+            </div>
+        </div>
+{% endblock %}
+ 
+{% block footer %}
+{% endblock %}
+{% block extra_js %}
+<script src="{{ STATIC_URL }}js/isotope.pkgd.min.js"></script>
+<script>
+$('.grid').isotope({
+    // options
+    itemSelector: '.grid-item',
+    layoutMode: 'fitRows',
+    percentPosition: true,
+    masonry: {
+        // use outer width of grid-sizer for columnWidth
+        columnWidth: '.grid-sizer'
+      }
+  });
+$('.filters').on( 'click', 'button', function() {
+    $('.filters button').removeClass("active");
+    $(this).addClass("active");
+    var filterValue = $(this).attr('data-filter');
+    $('.grid').isotope({ filter: filterValue });
+});
+</script>
+{% endblock %}
