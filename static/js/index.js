@@ -12,7 +12,7 @@ function initWorld(world, Physics) {
   // bounds of the window
   var viewWidth = window.innerWidth
     ,viewHeight = window.innerHeight
-    ,viewportBounds = Physics.aabb(0, 0, window.innerWidth, 500)
+    ,viewportBounds = Physics.aabb(0, 0, window.innerWidth, 400)
     ,edgeBounce
     ,renderer
     ,styles = {
