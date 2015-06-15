@@ -14,17 +14,19 @@ urlpatterns = patterns('website.views',
                        url(r'^dnscheck/$', 'dnscheck', name='ochoReinas'),
                        url(r'^contact/$', 'contact', name='contact'),
                        url(r'^cv/$', TemplateView.as_view(
-                           template_name='website/cv.html')),
+                           template_name='website/cv.html'), name="cv"),
                        url(r'^projects/wema/$', TemplateView.as_view(
-                           template_name='website/projects_wema.html')),
+                           template_name='website/projects_wema.html'), name="project_wema"),
                        url(r'^projects/atenea/$', TemplateView.as_view(
-                           template_name='website/projects_atenea.html')),
+                           template_name='website/projects_atenea.html'), name="project_atenea"),
+                       url(r'^projects/cssbeautifier/$', TemplateView.as_view(
+                           template_name='website/projects_cssbeautifier.html'), name="project_cssbeautifier"),
                        url(r'^projects/revengebook/$', TemplateView.as_view(
-                           template_name='website/projects_revengebook.html')),
+                           template_name='website/projects_revengebook.html'), name="project_rb"),
                        url(r'^projects/olif/$', TemplateView.as_view(
-                           template_name='website/projects_olif.html')),
+                           template_name='website/projects_olif.html'), name="project_olif"),
                        url(r'^projects/olimpo/$', TemplateView.as_view(
-                           template_name='website/projects_olimpo.html')),
+                           template_name='website/projects_olimpo.html'), name="project_olimpo"),
                        url(r'^resources/$', 'resources', name='resources'),
                        url(r'^thanks/$', TemplateView.as_view(
                            template_name='website/thanks.html')),

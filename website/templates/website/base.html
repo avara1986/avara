@@ -45,31 +45,35 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="/">Inicio</a>
+                    <a href="{% url "index_homepage" %}">Inicio</a>
                 </li>
                 <li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Proyectos <span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu">
-		            <li><a href="/projects/wema/">WeMa</a></li>
-		            <li><a href="/projects/atenea/">Atenea Solutions</a></li>
-		            <li><a href="/projects/revengebook/">Revenge Book</a></li>
+		            <li><a href="{% url "project_wema" %}">WeMa</a></li>
+		            <li><a href="{% url "project_atenea" %}">Atenea Solutions</a></li>
+		            <li><a href="{% url "project_cssbeautifier" %}">CSS Beautifier</a></li>
+		            <li><a href="{% url "project_rb" %}">Revenge Book</a></li>
 		            <li class="divider"></li>
-		            <li><a href="/projects/olif/">OLIF Framework</a></li>
-		            <li><a href="/projects/olimpo/">Olimpo Framework</a></li>
+		            <li><a href="{% url "project_olif" %}">OLIF Framework</a></li>
+		            <li><a href="{% url "project_olimpo" %}">Olimpo Framework</a></li>
 		          </ul>
 		        </li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Recursos/Scripts <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Scripts <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="/8reinas/">8 Reinas</a></li>
                     <li><a href="/dnscheck/">DNS checker</a></li>
                   </ul>
                 </li>
                 <li>
-                    <a href="/cv/">CV</a>
+                    <a href="{% url "resources" %}">recursos</a>
                 </li>
                 <li>
-                    <a href="/contact/">Contacto</a>
+                    <a href="{% url "cv" %}">CV</a>
+                </li>
+                <li>
+                    <a href="{% url "contact" %}">Contacto</a>
                 </li>
             </ul>
         </div>
