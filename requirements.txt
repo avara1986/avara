@@ -7,3 +7,4 @@ djangorestframework
 nose
 dnspython
 pdb
+git+https://github.com/avara1986/django-blockreferralspam.git

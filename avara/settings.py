@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'csp',
     'djangae.contrib.gauth',
     'djangae',  # Djangae should be after Django core/contrib things
+    'blockreferralspam',
     'rest_framework',
     'website',
 )
@@ -55,6 +56,7 @@ MIDDLEWARE_CLASSES = (
     #'csp.middleware.CSPMiddleware',
     'session_csrf.CsrfMiddleware',
     'djangosecure.middleware.SecurityMiddleware',
+    'blockreferralspam.middleware.KillSpam',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
