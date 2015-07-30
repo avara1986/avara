@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'blockreferralspam',
     'rest_framework',
     'website',
+    'resources'
 )
 
 MIDDLEWARE_CLASSES = (

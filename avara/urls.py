@@ -1,17 +1,12 @@
 from django.conf.urls import patterns, include, url
-from avara import settings
 from django.contrib import admin
+from avara import settings
+from avara.routers import router
 admin.autodiscover()
 
 urlpatterns = patterns('',
-                       # Examples:
-                       # url(r'^$', 'scaffold.views.home', name='home'),
-                       # url(r'^blog/', include('blog.urls')),
-
                        url(r'^_ah/', include('djangae.urls')),
-
-                       # Note that by default this is also locked down with login:admin in
-                       # app.yaml
+                       url(r'^api/v1/', include(router.urls)),
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^', include('website.urls')),
                        )

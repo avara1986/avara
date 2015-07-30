@@ -1,6 +1,6 @@
 # encoding: utf-8
 from django.contrib import admin
-from website.models import Contact, Resource, Type
+from website.models import Contact
 
 
 class ContactAdmin(admin.ModelAdmin):
@@ -9,14 +9,6 @@ class ContactAdmin(admin.ModelAdmin):
         'created', 'name', 'email', 'comment')
 
 
-class ResourceAdmin(admin.ModelAdmin):
-    model = Contact
-    search_fields = ['title', 'url']
-    list_filter = ('types',)
-    ordering = ['-created', '-title']
-    list_display = (
-        'created', 'title', 'url', 'comment')
 
 admin.site.register(Contact, ContactAdmin)
-admin.site.register(Resource, ResourceAdmin)
-admin.site.register(Type)
+

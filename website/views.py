@@ -12,7 +12,7 @@ from itertools import permutations
 from random import randint
 
 from .forms import ContactForm
-from .models import Type, Resource
+from resources.models import Type, Resource
 import new
 
 
