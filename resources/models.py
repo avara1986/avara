@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from djangae import fields
+
+
 # Create your models here.
 class Type(models.Model):
     created = models.DateTimeField(auto_now_add=True)
@@ -9,8 +11,10 @@ class Type(models.Model):
 
     def __unicode__(self):
         return "%s" % self.name
+
     class Meta:
         db_table = 'website_type'
+
 
 class Resource(models.Model):
     created = models.DateTimeField(auto_now_add=True)
@@ -21,5 +25,6 @@ class Resource(models.Model):
 
     def __unicode__(self):
         return "%s" % self.title
+
     class Meta:
         db_table = 'website_resource'

@@ -35,7 +35,7 @@ The source code is shared with the virtual machine in this directory:
 
 Always run the following command to use the proper python virtual environment:
 
-	workon site
+	workon vavara
 
 Install the required python packages:
 
