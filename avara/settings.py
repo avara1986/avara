@@ -30,7 +30,10 @@ TEMPLATE_DEBUG = False
 # Application definition
 
 INSTALLED_APPS = (
+    # Djangae needs to come before django apps in django 1.7 and above
+    'djangae',
     'django.contrib.admin',
+    'django.contrib.admindocs',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -38,22 +41,26 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'djangosecure',
     'csp',
-    'djangae.contrib.gauth',
-    'djangae',  # Djangae should be after Django core/contrib things
+    'djangae.contrib.gauth.datastore',
+    'djangae.contrib.security',
+    'djangae.contrib.uniquetool',
     'blockreferralspam',
     'rest_framework',
+    'rest_framework.authtoken',
     'website',
     'resources'
 )
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 MIDDLEWARE_CLASSES = (
-    'django.middleware.csrf.CsrfViewMiddleware',
     'djangae.contrib.security.middleware.AppEngineSecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'djangae.contrib.gauth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #'csp.middleware.CSPMiddleware',
     'session_csrf.CsrfMiddleware',
     'djangosecure.middleware.SecurityMiddleware',
@@ -69,17 +76,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
     "session_csrf.context_processor",
-    'django.core.context_processors.csrf',
 )
-
-
-def check_session_csrf_enabled():
-    if "session_csrf.CsrfMiddleware" not in MIDDLEWARE_CLASSES:
-        return ["SESSION_CSRF_DISABLED"]
-
-    return []
-check_session_csrf_enabled.messages = {
-    "SESSION_CSRF_DISABLED": "Please add 'session_csrf.CsrfMiddleware' to MIDDLEWARE_CLASSES"}
 
 SECURE_CHECKS = [
     "djangosecure.check.sessions.check_session_cookie_secure",
@@ -88,7 +85,8 @@ SECURE_CHECKS = [
     "djangosecure.check.djangosecure.check_sts",
     "djangosecure.check.djangosecure.check_frame_deny",
     "djangosecure.check.djangosecure.check_ssl_redirect",
-    "avara.settings.check_session_csrf_enabled"
+    "avara.checks.check_session_csrf_enabled",
+    "avara.checks.check_csp_is_not_report_only"
 ]
 
 ROOT_URLCONF = 'avara.urls'
@@ -150,7 +148,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
         'rest_framework.permissions.AllowAny',
     ),
 }

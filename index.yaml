@@ -10,10 +10,23 @@ indexes:
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
 
+- kind: auth_group
+  properties:
+  - name: name
+  - name: __key__
+    direction: desc
+
 - kind: auth_permission
   properties:
   - name: content_type_id
   - name: codename
+
+- kind: authtoken_token
+  properties:
+  - name: created
+    direction: desc
+  - name: __key__
+    direction: desc
 
 - kind: djangae_gaedatastoreuser
   properties:
@@ -35,6 +48,11 @@ indexes:
 - kind: django_content_type
   properties:
   - name: app_label
+  - name: name
+
+- kind: django_migrations
+  properties:
+  - name: app
   - name: name
 
 - kind: website_contact
