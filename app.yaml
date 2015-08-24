@@ -25,6 +25,9 @@ handlers:
   script: avara.wsgi.application
 #  secure: always
 
+builtins:
+- remote_api: on
+
 skip_files:
     - manage.py
     - README.md
