@@ -9,7 +9,7 @@ python_preamble:
 
 transformers:
 
-- kind: resource
+- kind: website_resource
   connector: csv # TODO: Choose a connector here: csv, simplexml, etc...
   connector_options:
     encoding: utf-8
